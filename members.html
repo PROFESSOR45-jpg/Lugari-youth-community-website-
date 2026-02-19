@@ -120,27 +120,6 @@
             background-color: #45a049;
         }
 
-        .search-container {
-            margin: 20px auto;
-            width: 50%;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #4CAF50;
-            border-radius: 5px;
-        }
-
-        .results {
-            margin-top: 20px;
-            display: none;
-            background-color: #e0f7fa;
-            border: 1px solid #4CAF50;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
         .application-list {
             margin-top: 20px;
             text-align: left;
@@ -208,10 +187,6 @@
                 <button type="submit" class="submit-btn">Submit Application</button>
             </form>
         </div>
-        <div class="search-container">
-            <input type="text" id="search" class="search-input" placeholder="Search for a member...">
-            <div class="results" id="results"></div>
-        </div>
         <div class="application-list" id="applicationList">
             <h2>Submitted Applications</h2>
             <ul id="applications"></ul>
@@ -265,16 +240,9 @@
             localStorage.removeItem('membershipFormData');
         });
 
-        document.getElementById('search').addEventListener('input', function() {
-            const query = this.value.toLowerCase();
-            const results = document.getElementById('results');
-            results.style.display = query ? 'block' : 'none';
-            results.innerHTML = query ? `Searching for: ${query}` : '';
-        });
-
         window.onload = loadProgress;
         window.onbeforeunload = saveProgress;
     </script>
 </body>
-                </html>
-                        
+    </html>
+    
