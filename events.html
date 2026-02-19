@@ -162,6 +162,16 @@
         }
     </style>
     <title>LUGARI YOUTH COMMUNITY - Events</title>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            if (menu.style.display === "flex") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "flex";
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="navbar">
@@ -171,7 +181,7 @@
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="events.html">Upcoming Events</a>
-            <a href="members.html" onclick="showMemberForm()">Join Us</a>
+            <a href="members.html">Join Us</a>
             <a href="index.html#contact">Get in Touch</a>
         </div>
     </div>
@@ -219,62 +229,7 @@
     <footer>
         <p><i>POWERED BY PROFESSOR TECH</i></p>
     </footer>
-    <script>
-        let members = JSON.parse(localStorage.getItem('members')) || [];
-
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-        }
-
-        function showMemberForm() {
-            const form = document.getElementById('memberForm');
-            form.style.display = form.style.display === "none" ? "block" : "none";
-        }
-
-        function addMember() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const institution = document.getElementById('institution').value;
-            if (name && email && institution) {
-                members.push({ name, email, institution });
-                localStorage.setItem('members', JSON.stringify(members));
-                alert(`Member Added: ${name}, Email: ${email}`);
-                document.getElementById('name').value = '';
-                document.getElementById('email').value = '';
-                document.getElementById('institution').value = '';
-                showDirectory();
-            } else {
-                alert("Please fill in all fields.");
-            }
-        }
-
-        function showDirectory() {
-            const memberList = document.getElementById('memberList');
-            memberList.innerHTML = '';
-            members.forEach(member => {
-                const li = document.createElement('li');
-                li.textContent = `${member.name} - ${member.email} (${member.institution})`;
-                memberList.appendChild(li);
-            });
-        }
-
-        function searchMembers() {
-            const searchInput = document.getElementById('search').value.toLowerCase();
-            const filteredMembers = members.filter(member => 
-                member.name.toLowerCase().includes(searchInput) || 
-                member.email.toLowerCase().includes(searchInput) || 
-                member.institution.toLowerCase().includes(searchInput)
-            );
-            const memberList = document.getElementById('memberList');
-            memberList.innerHTML = '';
-            filteredMembers.forEach(member => {
-                const li = document.createElement('li');
-                li.textContent = `${member.name} - ${member.email} (${member.institution})`;
-                memberList.appendChild(li);
-            });
-        }
-    </script>
+    
 </body>
-        </html>
-                
+            </html>
+    
