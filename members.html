@@ -213,10 +213,35 @@
             menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
         }
 
+        function saveProgress() {
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                institution: document.getElementById('institution').value,
+                year: document.getElementById('year').value,
+                age: document.getElementById('age').value,
+                ward: document.getElementById('ward').value
+            };
+            localStorage.setItem('membershipFormData', JSON.stringify(formData));
+        }
+
+        function loadProgress() {
+            const savedData = JSON.parse(localStorage.getItem('membershipFormData'));
+            if (savedData) {
+                document.getElementById('name').value = savedData.name;
+                document.getElementById('phone').value = savedData.phone;
+                document.getElementById('institution').value = savedData.institution;
+                document.getElementById('year').value = savedData.year;
+                document.getElementById('age').value = savedData.age;
+                document.getElementById('ward').value = savedData.ward;
+            }
+        }
+
         document.getElementById('membershipForm').addEventListener('submit', function(event) {
             event.preventDefault();
             alert('Application submitted successfully!');
             this.reset();
+            localStorage.removeItem('membershipFormData');
         });
 
         document.getElementById('search').addEventListener('input', function() {
@@ -225,7 +250,10 @@
             results.style.display = query ? 'block' : 'none';
             results.innerHTML = query ? `Searching for: ${query}` : '';
         });
+
+        window.onload = loadProgress;
+        window.onbeforeunload = saveProgress;
     </script>
 </body>
-        </html>
-                        
+    </html>
+    
