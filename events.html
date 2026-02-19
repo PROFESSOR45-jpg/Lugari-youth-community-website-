@@ -1,0 +1,270 @@
+# LUGARI YOUTH COMMUNITY
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-image: url("https://files.catbox.moe/3m90of.jpg");
+            background-size: cover;
+            height: 60px;
+            padding: 10px;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        .logo {
+            width: 70px;
+            height: auto;
+        }
+
+        .hamburger {
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: #4CAF50;
+            width: 100%;
+            border: 1px solid #fff;
+        }
+
+        .menu a {
+            color: black;
+            padding: 15px;
+            text-decoration: none;
+            text-align: center;
+            background-color: gold;
+            border: 2px solid #4CAF50;
+        }
+
+        .menu a:hover {
+            background-color: #45a049;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            font-style: italic;
+            padding: 5px;
+            background-color: grey;
+            position: relative;
+            bottom: 20px;
+            width: 100%;
+            height: 30px;
+            margin-top: 30px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h4 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .search-bar {
+            margin: 20px 0;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .contact-buttons a {
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        #memberList {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #memberList li {
+            background: #e7e7e7;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .description {
+            background-color: #e0f7fa;
+            border: 1px solid #4CAF50;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .description h2 {
+            color: #00796b;
+        }
+
+        .description h4 {
+            color: #004d40;
+        }
+
+        .event {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #4CAF50;
+            border-radius: 10px;
+            background-color: #e7f3fe;
+        }
+
+        .event img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .attended {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+    </style>
+    <title>LUGARI YOUTH COMMUNITY - Events</title>
+</head>
+<body>
+    <div class="navbar">
+        <img src="https://files.catbox.moe/0mqmmv.jpg" alt="community Logo" class="logo">
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <div class="menu" id="menu">
+            <a href="about.html">About Us</a>
+            <a href="events.html">Upcoming Events</a>
+            <a href="members.html" onclick="showMemberForm()">Join Us</a>
+            <a href="#contact">Get in Touch</a>
+        </div>
+    </div>
+    <div class="content">
+        <h1>Upcoming Events</h1>
+        <div class="event attended">
+            <h2>1st Meeting (Inaugural Meeting – Turbo)</h2>
+            <p><strong>Venue:</strong> Turbo (physical meeting)</p>
+            <p><strong>Focus:</strong> Introduction of the Lugari Youth Community and the Lugari University and Colleges Students' Association (LUCSACBO).</p>
+            <p><strong>Objective:</strong> Launching the community platform, uniting youth and students in Lugari Constituency, and setting the foundation for empowerment initiatives led by Hon. Nabii Nabwire.</p>
+            <p><strong>Key Outcomes:</strong> Establishment of the community’s mission to connect youth, explore opportunities, and drive positive change in Lugari’s six wards (Lumakanda, Lugari, Mautuma, Lwandeti, Chekalini, Chevaywa).</p>
+            <img src="https://files.catbox.moe/3m90of.jpg" alt="1st Meeting Poster">
+        </div>
+        <div class="event attended">
+            <h2>2nd Meeting (2nd Online General Meeting – WhatsApp Voice Call)</h2>
+            <p><strong>Venue:</strong> Online (WhatsApp voice call)</p>
+            <p><strong>Focus:</strong> Treasury and Welfare Department of LUCSACBO.</p>
+            <p><strong>Agenda:</strong></p>
+            <ol>
+                <li>Prayers</li>
+                <li>Reports</li>
+                <li>Members registration and subscriptions</li>
+                <li>Welfare rules and strengthening strategies</li>
+                <li>AOB (Any Other Business)</li>
+            </ol>
+            <p><strong>Date:</strong> 14/02/2026, 8:30 pm.</p>
+            <p><strong>Chair:</strong> Treasury and Welfare department.</p>
+            <img src="https://files.catbox.moe/3m90of.jpg" alt="2nd Meeting Poster">
+        </div>
+        <div class="event">
+            <h2>3rd Meeting (Community Development Workshop)</h2>
+            <p>TO BE COMMUNICATED</p>
+            <img src="https://files.catbox.moe/3m90of.jpg" alt="3rd Meeting Poster">
+        </div>
+        <p><strong>Overall Impact:</strong> The first meeting set the stage for community introduction and youth unity in Turbo, while the second online meeting advanced organizational structures focusing on student welfare and financial management within LUCSACBO. The upcoming third meeting aims to further empower the youth for community development. 🚀</p>
+    </div>
+    <footer>
+        <p><i>POWERED BY PROFESSOR TECH</i></p>
+    </footer>
+    <script>
+        let members = JSON.parse(localStorage.getItem('members')) || [];
+
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+        }
+
+        function showMemberForm() {
+            const form = document.getElementById('memberForm');
+            form.style.display = form.style.display === "none" ? "block" : "none";
+        }
+
+        function addMember() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const institution = document.getElementById('institution').value;
+            if (name && email && institution) {
+                members.push({ name, email, institution });
+                localStorage.setItem('members', JSON.stringify(members));
+                alert(`Member Added: ${name}, Email: ${email}`);
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('institution').value = '';
+                showDirectory();
+            } else {
+                alert("Please fill in all fields.");
+            }
+        }
+
+        function showDirectory() {
+            const memberList = document.getElementById('memberList');
+            memberList.innerHTML = '';
+            members.forEach(member => {
+                const li = document.createElement('li');
+                li.textContent = `${member.name} - ${member.email} (${member.institution})`;
+                memberList.appendChild(li);
+            });
+        }
+
+        function searchMembers() {
+            const searchInput = document.getElementById('search').value.toLowerCase();
+            const filteredMembers = members.filter(member => 
+                member.name.toLowerCase().includes(searchInput) || 
+                member.email.toLowerCase().includes(searchInput) || 
+                member.institution.toLowerCase().includes(searchInput)
+            );
+            const memberList = document.getElementById('memberList');
+            memberList.innerHTML = '';
+            filteredMembers.forEach(member => {
+                const li = document.createElement('li');
+                li.textContent = `${member.name} - ${member.email} (${member.institution})`;
+                memberList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
