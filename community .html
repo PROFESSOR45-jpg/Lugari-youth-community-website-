@@ -1,0 +1,54 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>LUGARI YOUTH COMMUNITY</title>
+</head>
+<body>
+    <div class="navbar">
+        <img src="https://files.catbox.moe/0mqmmv.jpg" alt="community Logo" class="logo">
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <div class="menu" id="menu">
+            <a href="about.html">About Us</a>
+            <a href="events.html">Events</a>
+            <a href="members.html" onclick="showMemberForm()">Members</a>
+            <a href="contact.html">Contact</a>
+            <a href="directory.html">Directory</a>
+        </div>
+    </div>
+    <div class="content">
+        <h1>WELCOME TO LUGARI YOUTH WEBSITE</h1>
+        <p>Here you can find all the information about our community activities, events, and members.</p>
+        <h4>Clubs</h4>
+        <div id="memberForm" style="display:none;">
+            <h2>Add Your Details</h2>
+            <input type="text" id="name" placeholder="Your Name">
+            <input type="text" id="email" placeholder="Your Email">
+            <input type="text" id="institution" placeholder="Your Institution">
+            <button class="button" onclick="addMember()">Submit</button>
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search Members" onkeyup="searchMembers()">
+            </div>
+        </div>
+        <div id="directory" style="display:none;">
+            <h2>Member Directory</h2>
+            <ul id="memberList"></ul>
+        </div>
+        <div id="contact" style="display:block;">
+            <h2>Contact Us</h2>
+            <div class="contact-buttons">
+                <a href="https://chat.whatsapp.com/L4IGo3pFqQ412FaWM7lbdW" class="button">WhatsApp Group</a>
+                <a href="https://www.facebook.com/profile.php?id=61579274423320" class="button">Facebook Page</a>
+                <a href="https://www.instagram.com/lucsacbo?utm_source=qr&igsh=MTNkM3lsODdtNDY2dw==" class="button">Instagram Page</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p><i>POWERED BY PROFESSOR TECH</i></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
