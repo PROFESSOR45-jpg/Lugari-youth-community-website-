@@ -184,7 +184,7 @@
         <div class="menu" id="menu">
             <a href="about.html">About Us</a>
             <a href="events.html">Upcoming Events</a>
-            <a href="members.html" onclick="showMemberForm()">Join Us</a>
+            <a href="members.html">Join Us</a>
             <a href="#contact" onclick="flashContact()">Get in Touch</a>
         </div>
     </div>
@@ -213,17 +213,6 @@
         </div>
 
         <h4>Clubs</h4>
-        <div id="memberForm" style="display:none;">
-            <h2>Add Your Details</h2>
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <input type="text" id="institution" placeholder="Your Institution" required>
-            <button class="button" onclick="addMember()">Submit</button>
-            <div class="search-bar">
-                <input type="text" id="search" placeholder="Search Members" onkeyup="searchMembers()">
-            </div>
-            <ul id="memberList"></ul>
-        </div>
         <div id="contact" style="display:block;">
             <h2>Contact Us</h2>
             <div class="contact-buttons">
@@ -236,62 +225,17 @@
         </div>
     </div>
     <footer>
-        <p><i>POWERED BY PROFESSOR TECH</i></p>
+        Remove action from members button remains just button
     </footer>
-    <script>
-        let members = JSON.parse(localStorage.getItem('members')) || [];
 
+    <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-        }
-
-        function showMemberForm() {
-            const form = document.getElementById('memberForm');
-            form.style.display = form.style.display === "none" ? "block" : "none";
-        }
-
-        function addMember() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const institution = document.getElementById('institution').value;
-            if (name && email && institution) {
-                members.push({ name, email, institution });
-                localStorage.setItem('members', JSON.stringify(members));
-                alert(`Member Added: ${name}, Email: ${email}`);
-                document.getElementById('name').value = '';
-                document.getElementById('email').value = '';
-                document.getElementById('institution').value = '';
-                showDirectory();
+            if (menu.style.display === 'flex') {
+                menu.style.display = 'none';
             } else {
-                alert("Please fill in all fields.");
+                menu.style.display = 'flex';
             }
-        }
-
-        function showDirectory() {
-            const memberList = document.getElementById('memberList');
-            memberList.innerHTML = '';
-            members.forEach(member => {
-                const li = document.createElement('li');
-                li.textContent = `${member.name} - ${member.email} (${member.institution})`;
-                memberList.appendChild(li);
-            });
-        }
-
-        function searchMembers() {
-            const searchInput = document.getElementById('search').value.toLowerCase();
-            const filteredMembers = members.filter(member => 
-                member.name.toLowerCase().includes(searchInput) || 
-                member.email.toLowerCase().includes(searchInput) || 
-                member.institution.toLowerCase().includes(searchInput)
-            );
-            const memberList = document.getElementById('memberList');
-            memberList.innerHTML = '';
-            filteredMembers.forEach(member => {
-                const li = document.createElement('li');
-                li.textContent = `${member.name} - ${member.email} (${member.institution})`;
-                memberList.appendChild(li);
-            });
         }
 
         function flashContact() {
