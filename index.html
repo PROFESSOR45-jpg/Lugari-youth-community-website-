@@ -106,12 +106,15 @@
 
         .contact-buttons {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid #25D366; /* WhatsApp default color */
+            padding: 10px;
             margin-top: 20px;
         }
 
         .contact-buttons a {
-            margin: 0 10px;
+            margin: 5px 0;
             text-decoration: none;
         }
 
@@ -142,6 +145,16 @@
         .description h4 {
             color: #004d40;
         }
+
+        .flash {
+            animation: flash 1s infinite;
+        }
+
+        @keyframes flash {
+            0% { background-color: #4CAF50; }
+            50% { background-color: #fff; }
+            100% { background-color: #4CAF50; }
+        }
     </style>
     <title>LUGARI YOUTH COMMUNITY</title>
 </head>
@@ -153,13 +166,14 @@
             <a href="about.html">About Us</a>
             <a href="events.html">Upcoming Events</a>
             <a href="members.html" onclick="showMemberForm()">Join Us</a>
-            <a href="#contact">Get in Touch</a>
+            <a href="#contact" onclick="flashContact()">Get in Touch</a>
         </div>
     </div>
     <div class="content">
         <h1>WELCOME TO LUGARI YOUTH WEBSITE</h1>
-        <p>Here you can find all the information about our community activities, events, and members.</p>
         <h2 style="color: blue;">HOME</h2>
+        <p>Here you can find all the information about our community activities, events, and members.</p>
+        
         <div class="description">
             <h2>Welcome to Lugari Youth Community</h2>
             <p>Lugari Youth Community is a platform dedicated to uniting the youth of Lugari Constituency, Kakamega County, Western Kenya. Our goal is to connect and empower young people to explore opportunities, share ideas, and drive positive change in our community.</p>
@@ -258,7 +272,15 @@
                 memberList.appendChild(li);
             });
         }
+
+        function flashContact() {
+            const contactSection = document.getElementById('contact');
+            contactSection.classList.add('flash');
+            setTimeout(() => {
+                contactSection.classList.remove('flash');
+            }, 2000);
+        }
     </script>
 </body>
-            </html>
+    </html>
     
