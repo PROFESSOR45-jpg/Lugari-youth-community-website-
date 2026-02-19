@@ -140,6 +140,16 @@
             padding: 10px;
             border-radius: 5px;
         }
+
+        .application-list {
+            margin-top: 20px;
+            text-align: left;
+            background-color: #e0f7fa;
+            border: 1px solid #4CAF50;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
     </style>
     <title>Membership Application - LUGARI YOUTH COMMUNITY</title>
 </head>
@@ -202,6 +212,10 @@
             <input type="text" id="search" class="search-input" placeholder="Search for a member...">
             <div class="results" id="results"></div>
         </div>
+        <div class="application-list" id="applicationList">
+            <h2>Submitted Applications</h2>
+            <ul id="applications"></ul>
+        </div>
     </div>
     <footer>
         <p><i>POWERED BY PROFESSOR TECH</i></p>
@@ -239,6 +253,13 @@
 
         document.getElementById('membershipForm').addEventListener('submit', function(event) {
             event.preventDefault();
+            const name = document.getElementById('name').value;
+            const applicationsList = document.getElementById('applications');
+            const applicationList = document.getElementById('applicationList');
+            const listItem = document.createElement('li');
+            listItem.textContent = name;
+            applicationsList.appendChild(listItem);
+            applicationList.style.display = 'block';
             alert('Application submitted successfully!');
             this.reset();
             localStorage.removeItem('membershipFormData');
@@ -255,5 +276,5 @@
         window.onbeforeunload = saveProgress;
     </script>
 </body>
-    </html>
-    
+                            </html>
+            
