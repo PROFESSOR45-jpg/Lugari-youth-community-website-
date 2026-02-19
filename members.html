@@ -1,14 +1,237 @@
-<!DOCTYPE html>
+# Membership Application - LUGARI YOUTH COMMUNITY
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
-  <title>Hello, World!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-image: url("https://files.catbox.moe/3m90of.jpg");
+            background-size: cover;
+            height: 60px;
+            padding: 10px;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        .logo {
+            width: 70px;
+            height: auto;
+        }
+
+        .hamburger {
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: #4CAF50;
+            width: 100%;
+            border: 1px solid #fff;
+        }
+
+        .menu a {
+            color: black;
+            padding: 15px;
+            text-decoration: none;
+            text-align: center;
+            background-color: gold;
+            border: 2px solid #4CAF50;
+        }
+
+        .menu a:hover {
+            background-color: #45a049;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            font-style: italic;
+            padding: 5px;
+            background-color: grey;
+            position: relative;
+            bottom: 20px;
+            width: 100%;
+            height: 30px;
+            margin-top: 30px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #4CAF50;
+        }
+
+        .form-container {
+            background-color: #e0f7fa;
+            border: 1px solid #4CAF50;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 50%;
+        }
+
+        .form-group {
+            margin: 15px 0;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .search-container {
+            margin: 20px auto;
+            width: 50%;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+        }
+
+        .results {
+            margin-top: 20px;
+            display: none;
+            background-color: #e0f7fa;
+            border: 1px solid #4CAF50;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+    <title>Membership Application - LUGARI YOUTH COMMUNITY</title>
 </head>
 <body>
-  <h1>
-    Hello, World!
-  </h1>
+    <div class="navbar">
+        <img src="https://files.catbox.moe/0mqmmv.jpg" alt="community Logo" class="logo">
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <div class="menu" id="menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="events.html">Upcoming Events</a>
+            <a href="members.html" onclick="showMemberForm()">Join Us</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </div>
+    <div class="content">
+        <h1>Membership Application</h1>
+        <div class="form-container">
+            <form id="membershipForm">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="institution">Institution:</label>
+                    <input type="text" id="institution" name="institution" required>
+                </div>
+                <div class="form-group">
+                    <label for="year">Year of Study:</label>
+                    <select id="year" name="year" required>
+                        <option value="1st">1st Year</option>
+                        <option value="2nd">2nd Year</option>
+                        <option value="3rd">3rd Year</option>
+                        <option value="4th">4th Year</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" required>
+                </div>
+                <div class="form-group">
+                    <label for="ward">Ward:</label>
+                    <select id="ward" name="ward" required>
+                        <option value="Lumakanda">Lumakanda</option>
+                        <option value="Lugari">Lugari</option>
+                        <option value="Mautuma">Mautuma</option>
+                        <option value="Lwandeti">Lwandeti</option>
+                        <option value="Chekalini">Chekalini</option>
+                        <option value="Chevaywa">Chevaywa</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+        <div class="search-container">
+            <input type="text" id="search" class="search-input" placeholder="Search for a member...">
+            <div class="results" id="results"></div>
+        </div>
+    </div>
+    <footer>
+        <p><i>POWERED BY PROFESSOR TECH</i></p>
+    </footer>
+    <script>
+        const members = [];
+
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+        }
+
+        document.getElementById('membershipForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            members.push(name);
+            alert('Application submitted successfully!');
+            document.getElementById('membershipForm').reset();
+        });
+
+        document.getElementById('search').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const results = members.filter(member => member.toLowerCase().includes(query));
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = results.length ? results.join('<br>') : 'No results found';
+            resultsContainer.style.display = results.length ? 'block' : 'none';
+        });
+    </script>
 </body>
-</html>
-  
+  </html>
+      
