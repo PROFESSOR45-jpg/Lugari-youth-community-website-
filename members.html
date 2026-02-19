@@ -1,5 +1,3 @@
-# Membership Application - LUGARI YOUTH COMMUNITY
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -208,30 +206,26 @@
     <footer>
         <p><i>POWERED BY PROFESSOR TECH</i></p>
     </footer>
-    <script>
-        const members = [];
 
+    <script>
         function toggleMenu() {
             const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
         }
 
         document.getElementById('membershipForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            const name = document.getElementById('name').value;
-            members.push(name);
             alert('Application submitted successfully!');
-            document.getElementById('membershipForm').reset();
+            this.reset();
         });
 
         document.getElementById('search').addEventListener('input', function() {
             const query = this.value.toLowerCase();
-            const results = members.filter(member => member.toLowerCase().includes(query));
-            const resultsContainer = document.getElementById('results');
-            resultsContainer.innerHTML = results.length ? results.join('<br>') : 'No results found';
-            resultsContainer.style.display = results.length ? 'block' : 'none';
+            const results = document.getElementById('results');
+            results.style.display = query ? 'block' : 'none';
+            results.innerHTML = query ? `Searching for: ${query}` : '';
         });
     </script>
 </body>
-  </html>
-      
+        </html>
+                        
