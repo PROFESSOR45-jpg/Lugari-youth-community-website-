@@ -1,10 +1,148 @@
-<!-- index.html -->
+# LUGARI YOUTH COMMUNITY
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-image: url("https://files.catbox.moe/3m90of.jpg");
+            background-size: cover;
+            height: 60px;
+            padding: 10px;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        .logo {
+            width: 70px;
+            height: auto;
+        }
+
+        .hamburger {
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: #4CAF50;
+            width: 100%;
+            border: 1px solid #fff;
+        }
+
+        .menu a {
+            color: black;
+            padding: 15px;
+            text-decoration: none;
+            text-align: center;
+            background-color: gold;
+            border: 2px solid #4CAF50;
+        }
+
+        .menu a:hover {
+            background-color: #45a049;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            font-style: italic;
+            padding: 5px;
+            background-color: grey;
+            position: relative;
+            bottom: 20px;
+            width: 100%;
+            height: 30px;
+            margin-top: 30px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h4 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .search-bar {
+            margin: 20px 0;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .contact-buttons a {
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        #memberList {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #memberList li {
+            background: #e7e7e7;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .description {
+            background-color: #e0f7fa;
+            border: 1px solid #4CAF50;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .description h2 {
+            color: #00796b;
+        }
+
+        .description h4 {
+            color: #004d40;
+        }
+    </style>
     <title>LUGARI YOUTH COMMUNITY</title>
 </head>
 <body>
@@ -13,42 +151,114 @@
         <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
         <div class="menu" id="menu">
             <a href="about.html">About Us</a>
-            <a href="events.html">Events</a>
-            <a href="members.html" onclick="showMemberForm()">Members</a>
-            <a href="contact.html">Contact</a>
-            <a href="directory.html">Directory</a>
+            <a href="events.html">Upcoming Events</a>
+            <a href="members.html" onclick="showMemberForm()">Join Us</a>
+            <a href="#contact">Get in Touch</a>
         </div>
     </div>
     <div class="content">
         <h1>WELCOME TO LUGARI YOUTH WEBSITE</h1>
         <p>Here you can find all the information about our community activities, events, and members.</p>
+        
+        <div class="description">
+            <h2>Welcome to Lugari Youth Community</h2>
+            <p>Lugari Youth Community is a platform dedicated to uniting the youth of Lugari Constituency, Kakamega County, Western Kenya. Our goal is to connect and empower young people to explore opportunities, share ideas, and drive positive change in our community.</p>
+            <h4>Our Location</h4>
+            <p>Lugari Constituency is located in Kakamega County, Western Kenya, and comprises of six wards:</p>
+            <ul>
+                <li>Lumakanda</li>
+                <li>Lugari</li>
+                <li>Mautuma</li>
+                <li>Lwandeti</li>
+                <li>Chekalini</li>
+                <li>Chevaywa</li>
+            </ul>
+            <h4>Our Leadership</h4>
+            <p>Our constituency is represented by Hon. Nabii Nabwire and other dedicated leaders (MCAs) who are committed to the development of our community.</p>
+            <h4>Our Founder</h4>
+            <p>The Lugari Youth Community was initiated by Hon. Nabii Nabwire, with the vision of empowering and connecting the youth of Lugari. Join us as we work together to build a brighter future for Lugari.</p>
+        </div>
+
         <h4>Clubs</h4>
         <div id="memberForm" style="display:none;">
             <h2>Add Your Details</h2>
-            <input type="text" id="name" placeholder="Your Name">
-            <input type="text" id="email" placeholder="Your Email">
-            <input type="text" id="institution" placeholder="Your Institution">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <input type="text" id="institution" placeholder="Your Institution" required>
             <button class="button" onclick="addMember()">Submit</button>
             <div class="search-bar">
                 <input type="text" id="search" placeholder="Search Members" onkeyup="searchMembers()">
             </div>
-        </div>
-        <div id="directory" style="display:none;">
-            <h2>Member Directory</h2>
             <ul id="memberList"></ul>
         </div>
         <div id="contact" style="display:block;">
             <h2>Contact Us</h2>
             <div class="contact-buttons">
-                <a href="https://chat.whatsapp.com/L4IGo3pFqQ412FaWM7lbdW" class="button">WhatsApp Group</a>
-                <a href="https://www.facebook.com/profile.php?id=61579274423320" class="button">Facebook Page</a>
-                <a href="https://www.instagram.com/lucsacbo?utm_source=qr&igsh=MTNkM3lsODdtNDY2dw==" class="button">Instagram Page</a>
+                <a href="https://chat.whatsapp.com/L4IGo3pFqQ412FaWM7lbdW" class="button" target="_blank">WhatsApp Group</a>
+                <a href="https://www.facebook.com/profile.php?id=61579274423320" class="button" target="_blank">Facebook Page</a>
+                <a href="https://www.instagram.com/lucsacbo?utm_source=qr&igsh=MTNkM3lsODdtNDY2dw==" class="button" target="_blank">Instagram Page</a>
             </div>
         </div>
     </div>
     <footer>
         <p><i>POWERED BY PROFESSOR TECH</i></p>
     </footer>
-    <script src="script.js"></script>
+    <script>
+        let members = JSON.parse(localStorage.getItem('members')) || [];
+
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+        }
+
+        function showMemberForm() {
+            const form = document.getElementById('memberForm');
+            form.style.display = form.style.display === "none" ? "block" : "none";
+        }
+
+        function addMember() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const institution = document.getElementById('institution').value;
+            if (name && email && institution) {
+                members.push({ name, email, institution });
+                localStorage.setItem('members', JSON.stringify(members));
+                alert(`Member Added: ${name}, Email: ${email}`);
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('institution').value = '';
+                showDirectory();
+            } else {
+                alert("Please fill in all fields.");
+            }
+        }
+
+        function showDirectory() {
+            const memberList = document.getElementById('memberList');
+            memberList.innerHTML = '';
+            members.forEach(member => {
+                const li = document.createElement('li');
+                li.textContent = `${member.name} - ${member.email} (${member.institution})`;
+                memberList.appendChild(li);
+            });
+        }
+
+        function searchMembers() {
+            const searchInput = document.getElementById('search').value.toLowerCase();
+            const filteredMembers = members.filter(member => 
+                member.name.toLowerCase().includes(searchInput) || 
+                member.email.toLowerCase().includes(searchInput) || 
+                member.institution.toLowerCase().includes(searchInput)
+            );
+            const memberList = document.getElementById('memberList');
+            memberList.innerHTML = '';
+            filteredMembers.forEach(member => {
+                const li = document.createElement('li');
+                li.textContent = `${member.name} - ${member.email} (${member.institution})`;
+                memberList.appendChild(li);
+            });
+        }
+    </script>
 </body>
-</html>
+    </html>
+    
